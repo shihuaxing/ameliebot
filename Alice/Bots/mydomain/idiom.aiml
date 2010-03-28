@@ -4,17 +4,17 @@
 <!-- Last modified Seo 21, 2009, by Lichunlei -->
 
 <category>
-	<pattern>* 几点 *</pattern>
+	<pattern>* 几 点 *</pattern>
 	<template>It is <date format="h:mm a"/>.</template>
 </category> 
 
 <category>
-	<pattern>你好 *</pattern>
+	<pattern>你 好 *</pattern>
 	<template>你好.</template>
 </category> 
  
 <category>
-	<pattern>你 * 好吗 *</pattern>
+	<pattern>你 * 好 吗 *</pattern>
 	<template>还行.</template>
 </category>
                          
@@ -110,7 +110,7 @@
   
    <!-- A category set to learn simple user-fed categories. -->
   <category>
-    <pattern>* 不靠谱</pattern>
+    <pattern>* 不 靠 谱</pattern>
     <template>
        那得怎么说 你教教我
     </template>
