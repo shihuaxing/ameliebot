@@ -1,0 +1,15 @@
+= Introduction =
+
+把搜集到的AIML资料都发到这里来。。。
+
+
+= Details =
+
+*1. AIML简介*
+
+http://bayontree.blog.sohu.com/86385115.html
+
+
+*2. 让机器人模块 PyAIML 平滑处理中文 (主要看其中文分词的思想)*
+
+http://hi.baidu.com/xzkcz/blog/item/59349edd69b970325882dd78.html
