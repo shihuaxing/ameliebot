@@ -10,6 +10,8 @@ import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -111,8 +113,9 @@ public class Chat extends JFrame implements ActionListener,KeyListener{
 
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		String respon="Alice: error";	  	       
-		respon=xbot.respond(jtinput.getText());
+		String respon="Alice: error";	  	    
+		String input = this.normalizationChinese(jtinput.getText());
+		respon=xbot.respond(input);
 		text=text+"\nYou: "+jtinput.getText();
 		text=text+"\nAlice: "+respon;
 		screen.setText(text);
@@ -124,7 +127,8 @@ public class Chat extends JFrame implements ActionListener,KeyListener{
 		// TODO Auto-generated method stub
 		if(e.getKeyCode()== KeyEvent.VK_ENTER){
 			String respon="Alice: error";	  	       
-			respon=xbot.respond(jtinput.getText());
+			String input = this.normalizationChinese(jtinput.getText());
+			respon=xbot.respond(input);
 			text=text+"\nYou: "+jtinput.getText();
 			text=text+"\nAlice: "+respon;
 			screen.setText(text);
@@ -143,5 +147,27 @@ public class Chat extends JFrame implements ActionListener,KeyListener{
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public String normalizationChinese(String input){
+		Pattern pattern  = Pattern.compile("[\\u4e00-\\u9fa5]");
+		Matcher mather = pattern.matcher(input);
+//		mather.find();
+		StringBuffer target = new StringBuffer();
+//		for(int i = 0; i < input.length(); i++){
+//			if(mather.find()){
+//				target.append(input.charAt(i));
+//				target.append(" ");
+//			}else{
+//				target.append(input.charAt(i));
+//			}
+//		}
+		while(!mather.hitEnd() && mather.find()){
+			mather.appendReplacement(target, " "+mather.group()+" ");
+		}
+		mather.appendTail(target);
+		String result = target.toString();
+		System.out.println(result);
+		return result;
 	}
 }
